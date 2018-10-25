@@ -1,0 +1,43 @@
+body{
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* HEADER */
+.product_header{
+	background-color: white;
+}
+
+/* FEATURES EMAIL */
+.product_begin{
+	padding-top: 30px;
+	padding-bottom: 200px;
+}
+
+/* FEATURES DESCRIPTION */
+.product_description{
+	background-color: #007bff;
+}
+
+/* FEATURES VIDEO */
+.product_video{
+	background-color: white;
+}
+
+/* FOOTER */
+.product_footer{
+	background-color: #F5F5F5;
+}
+
+.product_footer h5{
+	color: black;
+}
+
+.product_footer p{
+	color: dimgrey;
+}
+
+/* FORMULARIO */
+.product_form{
+	background-color: #0062CC;
+	color: white;
+}
