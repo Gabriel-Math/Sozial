@@ -15,9 +15,12 @@
         <b-row class="justify-content-md-center">
           <b-col md="8" class="form-group">
             <b-form action="../event">
-              <b-form-group>
+              <b-input-group>
                 <b-form-input size="lg" type="email" required placeholder="Digite o seu e-mail e vamos começar!"></b-form-input>
-              </b-form-group>
+                <b-input-group-append>
+                  <b-btn type="submit" variant="outline-primary">Enviar</b-btn>
+                </b-input-group-append>
+              </b-input-group>
             </b-form>
           </b-col>
         </b-row>
@@ -54,12 +57,12 @@
           </b-col>
         </b-row>
       </b-container>
-    </section>  
+    </section>
   </div>
 </template>
 
 <script>
 export default {
-  name: "MyFeatures"
-};
+  name: 'MyFeatures'
+}
 </script>

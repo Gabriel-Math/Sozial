@@ -3,7 +3,10 @@ import Router from 'vue-router'
 import BootstrapVue from 'bootstrap-vue'
 import VueFormWizard from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
+Vue.use(VueAxios, axios)
 Vue.use(VueFormWizard)
 Vue.use(BootstrapVue)
 Vue.use(Router)
