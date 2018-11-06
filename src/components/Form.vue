@@ -16,7 +16,6 @@
                         color="black"
                         error-color="#a94442"
                         @on-complete="onComplete">
-
               <b-row>
                 <b-col>
                   <tab-content title="Requisitos do evento" :before-change="validateRequisite">
@@ -81,8 +80,8 @@ export default {
     return {};
   },
   methods: {
-    onComplete: function(){
-      alert('Concluido');
+    onComplete: function() {
+      alert("Concluido");
     },
     validateFirstTab: function() {
       return this.$refs.validateInfo.validate();

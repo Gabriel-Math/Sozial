@@ -5,7 +5,7 @@
       <b-row>
         <b-col>
           <b-form-group label="Tipo de ingresso:" label-for="event_ticket">
-            <b-form-input v-model="form.event_ticket" id="event_ticket" type="text"  placeholder="Tipo de ingresso" required></b-form-input>
+            <b-form-input v-model="form.event_ticket" id="event_ticket" type="text"  placeholder="Meia-entrada, VIP, etc." required></b-form-input>
           </b-form-group>
         </b-col>
       </b-row>

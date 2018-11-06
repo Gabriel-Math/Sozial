@@ -53,7 +53,7 @@
             <p> Conheça um pouco mais de como funciona a Sozial e entre você também! </p>
           </b-col>
           <b-col md="6">
-            <b-embed type="iframe" aspect="16by9" src="https://www.youtube.com/embed/aq1ZJo1I8Ig"></b-embed>
+            <b-embed type="iframe" aspect="16by9" src="https://www.youtube.com/embed/-DMDZ7eMhGk"></b-embed>
           </b-col>
         </b-row>
       </b-container>
