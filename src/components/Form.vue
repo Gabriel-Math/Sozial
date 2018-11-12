@@ -18,35 +18,35 @@
                         @on-complete="onComplete">
               <b-row>
                 <b-col>
-                  <tab-content title="Requisitos do evento" :before-change="validateRequisite">
+                  <tab-content title="Requisitos do evento" route="/requirements">
                     <requirements-form></requirements-form>
                   </tab-content>
                 </b-col>
               </b-row>
               <b-row>
                 <b-col>
-                  <tab-content title="Informações do evento" :before-change="validateInfo">
+                  <tab-content title="Informações do evento" route="/info">
                     <info-form></info-form>
                   </tab-content>
                 </b-col>
               </b-row>
               <b-row>
                 <b-col>
-                  <tab-content title="Localização do evento" :before-change="validateLocation">
+                  <tab-content title="Localização do evento" route="/location">
                     <local-form></local-form>
                   </tab-content>
                 </b-col>
               </b-row>
               <b-row>
                 <b-col>
-                  <tab-content title="Ingressos" :before-change="validateTicket">
+                  <tab-content title="Ingressos" route="/ticket">
                     <ticket-form></ticket-form>
                   </tab-content>
                 </b-col>
               </b-row>
               <b-row>
                 <b-col>
-                  <tab-content title="Definições do evento" :before-change="validateDefinition">
+                  <tab-content title="Definições do evento" route="/definition">
                     <definition-form></definition-form>
                   </tab-content>
                 </b-col>
@@ -61,14 +61,40 @@
 </template>
 
 <script>
-import infoForm from "./forms/infoForm";
-import localForm from "./forms/localForm";
-import ticketForm from "./forms/ticketForm";
-import definitionForm from "./forms/definitionForm";
-import requirementsForm from "./forms/requirementsForm";
+import infoForm from './forms/infoForm'
+import localForm from './forms/localForm'
+import ticketForm from './forms/ticketForm'
+import definitionForm from './forms/definitionForm'
+import requirementsForm from './forms/requirementsForm'
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: [
+    {
+      path: '/first',
+      component: infoForm
+    },
+    {
+      path: '/second',
+      component: localForm
+    },
+    {
+      path: '/third',
+      component: ticketForm
+    },
+    {
+      path: '/fourth',
+      component: definitionForm
+    },
+    {
+      path: '/fifth',
+      component: requirementsForm
+    }
+  ]
+})
 
 export default {
-  name: "MyForm",
+  name: 'MyForm',
   components: {
     infoForm,
     localForm,
@@ -76,28 +102,13 @@ export default {
     definitionForm,
     requirementsForm
   },
-  data() {
-    return {};
+  data () {
+    return {}
   },
   methods: {
-    onComplete: function() {
-      alert("Concluido");
-    },
-    validateFirstTab: function() {
-      return this.$refs.validateInfo.validate();
-    },
-    validateSecondTab: function() {
-      return this.$refs.validateLocation.validate();
-    },
-    validateFirstTab: function() {
-      return this.$refs.validateTicket.validate();
-    },
-    validateSecondTab: function() {
-      return this.$refs.validateDefinition.validate();
-    },
-    validateFirstTab: function() {
-      return this.$refs.validateRequisite.validate();
+    onComplete: function () {
+      alert('Concluido')
     }
   }
-};
+}
 </script>

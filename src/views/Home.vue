@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MyFeatures from '@/components/Features';
+import MyFeatures from '@/components/Features'
 export default {
   components: {
     MyFeatures
