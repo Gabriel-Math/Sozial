@@ -2,10 +2,10 @@
     <b-form>
       <div class="event_block my-4" style="padding: 2rem 3rem; text-align: left;">
         <!-- RESUMO DO EVENTO -->
-        <b-col md="6">
+        <b-col md="12">
           <b-row class="justify-content-md-center text-center">
             <b-col md="8">
-              <p class="h2">{{ form.event_name }}</p>
+              <p class="h2" style="color: black;">TESTE EVENTO</p>
             </b-col>
           </b-row>
           <b-row class="justify-content-md-center text-center">
@@ -15,12 +15,12 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> Data de inicio: {{ form.begin_date_event }} às {{ form.begin_hour_event }}</p>
+              <p> Data de inicio: TESTE às TESTE</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Data do fim: {{ form.end_date_event }} às {{ form.end_hour_event }}</p>
+              <p> Data do fim: TESTE às TESTE</p>
             </b-col>
           </b-row>
 
@@ -31,17 +31,17 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> Local: {{ form.event_location }}</p>
+              <p> Local: TESTE</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Rua/Avenida: {{ form.event_street }},{{ form.event_street_number }}</p>
+              <p> Rua/Avenida: TESTE,TESTE</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Cidade: {{ form.event_city }}-{{ form.selectedState }}</p>
+              <p> Cidade: TESTE-TESTE</p>
             </b-col>
           </b-row>
 
@@ -52,17 +52,17 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> Preço do ingresso: {{ form.event_ticket_price }}</p>
+              <p> Preço do ingresso: TESTE</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Data de inicio: {{ form.date_ticket_sell }} às {{ form.hour_ticket_sell }}</p>
+              <p> Data de inicio: TESTE às TESTE</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Data do fim: {{ form.hour_ticket_sell_over }} às {{ form.hour_ticket_sell_over }}</p>
+              <p> Data do fim: TESTE às TESTE</p>
             </b-col>
           </b-row>
 
@@ -73,7 +73,7 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> {{ form.event_program }}</p>
+              <p> TESTE</p>
             </b-col>
           </b-row>
 

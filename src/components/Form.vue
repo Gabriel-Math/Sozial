@@ -76,7 +76,7 @@ export default {
           title: 'Resumo',
           subtitle: 'Resumo do evento',
           component: StepSix,
-          completed: true
+          completed: false
         }
       ]
     }
@@ -102,7 +102,7 @@ export default {
     },
     // Executed when @stepper-finished event is triggered
     alert (payload) {
-      alert('OPA BELEZA VEI')
+      alert('Aguarde alguns momentos...')
     }
   }
 }
@@ -110,6 +110,9 @@ export default {
 
 <style>
     label {
+      color: black;
+    }
+    p {
       color: black;
     }
 </style>
