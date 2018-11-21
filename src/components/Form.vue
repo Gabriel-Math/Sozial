@@ -21,6 +21,7 @@ import StepTwo from './forms/localForm.vue'
 import StepThree from './forms/ticketForm.vue'
 import StepFour from './forms/definitionForm.vue'
 import StepFive from './forms/requirementsForm.vue'
+import StepSix from './forms/abstractForm.vue'
 
 export default {
   components: {
@@ -68,6 +69,14 @@ export default {
           subtitle: 'Requisitos do evento',
           component: StepFive,
           completed: false
+        },
+        {
+          icon: 'free_breakfast',
+          name: 'Resumo',
+          title: 'Resumo',
+          subtitle: 'Resumo do evento',
+          component: StepSix,
+          completed: true
         }
       ]
     }

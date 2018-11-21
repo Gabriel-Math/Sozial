@@ -1,8 +1,8 @@
 <template>
     <b-form>
+      <div class="event_block my-4" style="padding: 2rem 3rem; text-align: left;">
         <!-- RESUMO DO EVENTO -->
-        <b-col md="6" v-show="showAbstract">
-
+        <b-col md="6">
           <b-row class="justify-content-md-center text-center">
             <b-col md="8">
               <p class="h2">{{ form.event_name }}</p>
@@ -90,5 +90,26 @@
 
         </b-col>
         <!-- RESUMO DO EVENTO -->
+      </div>
     </b-form>
 </template>
+
+<script>
+import infoForm from './infoForm.vue'
+import localForm from './localForm.vue'
+import ticketForm from './ticketForm.vue'
+import definitionForm from './definitionForm.vue'
+import requirementsForm from './requirementsForm.vue'
+import abstractForm from './abstractForm.vue'
+
+export default {
+  components: {
+    infoForm,
+    localForm,
+    ticketForm,
+    definitionForm,
+    requirementsForm,
+    abstractForm
+  }
+}
+</script>
