@@ -51,18 +51,57 @@
 </template>
 
 <script>
+import { validationMixin } from 'vuelidate'
+import { required, email } from 'vuelidate/lib/validators'
+
 export default {
-  data () {
+  props: ['clickedNext', 'currentStep'],
+  mixins: [validationMixin],
+  data() {
     return {
       form: {
-        event_ticket: '',
-        event_ticket_price: '',
-        event_ticket_amount: '',
-        date_ticket_sell: '',
-        hour_ticket_sell: '',
-        date_ticket_sell_over: '',
-        hour_ticket_sell_over: ''
+        username: '',
+        demoEmail: '',
+        message: ''
       }
+    }
+  },
+  validations: {
+    form: {
+      username: {
+        required
+      },
+      demoEmail: {
+        required,
+        email
+      },
+      message: {
+        required
+      }
+    }
+  },
+  watch: {
+    $v: {
+      handler: function (val) {
+        if (!val.$invalid) {
+          this.$emit('can-continue', { value: true });
+        } else {
+          this.$emit('can-continue', { value: false });
+        }
+      },
+      deep: true
+    },
+    clickedNext(val) {
+      if (val === true) {
+        this.$v.form.$touch();
+      }
+    }
+  },
+  mounted() {
+    if (!this.$v.$invalid) {
+      this.$emit('can-continue', { value: true });
+    } else {
+      this.$emit('can-continue', { value: false });
     }
   }
 }

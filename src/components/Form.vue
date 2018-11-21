@@ -3,56 +3,9 @@
     <b-container>
       <b-row class="justify-content-md-center">
         <!-- FORMULARIO DO EVENTO -->
-        <b-col md="8">
-          <b-row>
-            <form-wizard
-                        title="Monte seu evento"
-                        subtitle=""
-                        shape="circle"
-                        back-button-text="Voltar"
-                        next-button-text="Avançar"
-                        step-size="xs"
-                        finish-button-text="Concluir"
-                        color="black"
-                        error-color="#a94442"
-                        @on-complete="onComplete">
-              <b-row>
-                <b-col>
-                  <tab-content title="Requisitos do evento" route="/requirements">
-                    <requirements-form></requirements-form>
-                  </tab-content>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <tab-content title="Informações do evento" route="/info">
-                    <info-form></info-form>
-                  </tab-content>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <tab-content title="Localização do evento" route="/location">
-                    <local-form></local-form>
-                  </tab-content>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <tab-content title="Ingressos" route="/ticket">
-                    <ticket-form></ticket-form>
-                  </tab-content>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <tab-content title="Definições do evento" route="/definition">
-                    <definition-form></definition-form>
-                  </tab-content>
-                </b-col>
-              </b-row>
-            </form-wizard>
-          </b-row>
+        <b-col lg="12" md="12" sm="12">
+            <horizontal-stepper :steps="demoSteps" locale="pt" @completed-step="completeStep" @active-step="isStepActive" @stepper-finished="alert">
+            </horizontal-stepper>
         </b-col>
         <!-- FORMULARIO DO EVENTO -->
       </b-row>
@@ -61,54 +14,93 @@
 </template>
 
 <script>
-import infoForm from './forms/infoForm'
-import localForm from './forms/localForm'
-import ticketForm from './forms/ticketForm'
-import definitionForm from './forms/definitionForm'
-import requirementsForm from './forms/requirementsForm'
+import HorizontalStepper from 'vue-stepper'
 
-const router = new VueRouter({
-  mode: 'history',
-  routes: [
-    {
-      path: '/first',
-      component: infoForm
-    },
-    {
-      path: '/second',
-      component: localForm
-    },
-    {
-      path: '/third',
-      component: ticketForm
-    },
-    {
-      path: '/fourth',
-      component: definitionForm
-    },
-    {
-      path: '/fifth',
-      component: requirementsForm
-    }
-  ]
-})
+import StepOne from './forms/infoForm.vue'
+import StepTwo from './forms/localForm.vue'
+import StepThree from './forms/ticketForm.vue'
+import StepFour from './forms/definitionForm.vue'
+import StepFive from './forms/requirementsForm.vue'
 
 export default {
-  name: 'MyForm',
   components: {
-    infoForm,
-    localForm,
-    ticketForm,
-    definitionForm,
-    requirementsForm
+    HorizontalStepper
   },
   data () {
-    return {}
+    return {
+      demoSteps: [
+        {
+          icon: 'build',
+          name: 'Informações',
+          title: 'Informações',
+          subtitle: 'Informações do evento',
+          component: StepOne,
+          completed: false
+        },
+        {
+          icon: 'add_location',
+          name: 'Localização',
+          title: 'Localização',
+          subtitle: 'Local do evento',
+          component: StepTwo,
+          completed: false
+        },
+        {
+          icon: 'star',
+          name: 'Ingresso',
+          title: 'Ingresso',
+          subtitle: 'Ingressos do evento',
+          component: StepThree,
+          completed: false
+        },
+        {
+          icon: 'done',
+          name: 'Definições',
+          title: 'Definições',
+          subtitle: 'Definições do evento',
+          component: StepFour,
+          completed: false
+        },
+        {
+          icon: 'free_breakfast',
+          name: 'Requisitos',
+          title: 'Requisitos',
+          subtitle: 'Requisitos do evento',
+          component: StepFive,
+          completed: false
+        }
+      ]
+    }
   },
   methods: {
-    onComplete: function () {
-      alert('Concluido')
+    // Executed when @completed-step event is triggered
+    completeStep (payload) {
+      this.demoSteps.forEach(step => {
+        if (step.name === payload.name) {
+          step.completed = true
+        }
+      })
+    },
+    // Executed when @active-step event is triggered
+    isStepActive (payload) {
+      this.demoSteps.forEach(step => {
+        if (step.name === payload.name) {
+          if (step.completed === true) {
+            step.completed = false
+          }
+        }
+      })
+    },
+    // Executed when @stepper-finished event is triggered
+    alert (payload) {
+      alert('OPA BELEZA VEI')
     }
   }
 }
 </script>
+
+<style>
+    label {
+      color: black;
+    }
+</style>
