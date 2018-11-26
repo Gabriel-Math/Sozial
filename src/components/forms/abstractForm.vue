@@ -10,7 +10,7 @@
           </b-row>
           <b-row class="justify-content-md-center text-center">
             <b-col md="8">
-              <p class="h5">Informações</p>
+              <p class="h5" style="color: black;">Informações</p>
             </b-col>
           </b-row>
           <b-row>
@@ -26,7 +26,7 @@
 
           <b-row class="justify-content-md-center text-center">
             <b-col md="8">
-              <p class="h5">Localização</p>
+              <p class="h5" style="color: black;">Localização</p>
             </b-col>
           </b-row>
           <b-row>
@@ -47,12 +47,12 @@
 
           <b-row class="justify-content-md-center text-center">
             <b-col md="8">
-              <p class="h5">Ingresso(s)</p>
+              <p class="h5" style="color: black;">Ingresso(s)</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Preço do ingresso: {{ tprice }}</p>
+              <p> Preço do ingresso: R${{ tprice }}</p>
             </b-col>
           </b-row>
           <b-row>
@@ -68,7 +68,7 @@
 
           <b-row class="justify-content-md-center text-center">
             <b-col md="8">
-              <p class="h5">Programação</p>
+              <p class="h5" style="color: black;">Programação</p>
             </b-col>
           </b-row>
           <b-row>
@@ -79,7 +79,7 @@
 
           <b-row class="justify-content-md-center text-center">
             <b-col md="8">
-              <p class="h5">Resultado dos requisitos:</p>
+              <p class="h5" style="color: black;">Resultado dos requisitos:</p>
             </b-col>
           </b-row>
           <b-row>
@@ -131,13 +131,6 @@ export default {
     this.hbticket = localStorage.hbticket
     this.deticket = localStorage.deticket
     this.heticket = localStorage.heticket
-
   }
 }
 </script>
-
-<style>
-p {
-  color: black;
-}
-</style>
