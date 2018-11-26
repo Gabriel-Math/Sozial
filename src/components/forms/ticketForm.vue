@@ -17,7 +17,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Preço do ingresso:" label-for="event_ticket_price">
             <b-form-input :class="['input', ($v.form.event_ticket_price.$error) ? 'is-danger' : '']"
-                          v-model="form.event_ticket_price" id="event_ticket_price"
+                          v-model="form.event_ticket_price" id="event_ticket_price" @keyup.native="ticketSave()"
                           type="number" required>
             </b-form-input>
           </b-form-group>
@@ -26,7 +26,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Quantidade de ingressos:" label-for="event_ticket_amount">
             <b-form-input :class="['input', ($v.form.event_ticket_amount.$error) ? 'is-danger' : '']"
-                          v-model="form.event_ticket_amount"
+                          v-model="form.event_ticket_amount" @keyup.native="ticketSave()"
                           id="begin_hour_event" type="number" required>
             </b-form-input>
           </b-form-group>
@@ -37,7 +37,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Data inicio da venda:" label-for="date_ticket_sell">
             <b-form-input :class="['input', ($v.form.date_ticket_sell.$error) ? 'is-danger' : '']"
-                          v-model="form.date_ticket_sell" id="date_ticket_sell"
+                          v-model="form.date_ticket_sell" id="date_ticket_sell" @keyup.native="ticketSave()"
                           type="date" required>
             </b-form-input>
           </b-form-group>
@@ -46,7 +46,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Horario inicio da venda:" label-for="hour_ticket_sell">
             <b-form-input :class="['input', ($v.form.hour_ticket_sell.$error) ? 'is-danger' : '']"
-                          v-model="form.hour_ticket_sell" id="hour_ticket_sell"
+                          v-model="form.hour_ticket_sell" id="hour_ticket_sell" @keyup.native="ticketSave()"
                           type="time" required>
             </b-form-input>
           </b-form-group>
@@ -57,7 +57,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Data fim da venda:" label-for="date_ticket_sell_over">
             <b-form-input :class="['input', ($v.form.date_ticket_sell_over.$error) ? 'is-danger' : '']"
-                          v-model="form.date_ticket_sell_over" id="date_ticket_sell_over"
+                          v-model="form.date_ticket_sell_over" id="date_ticket_sell_over" @keyup.native="ticketSave()"
                           type="date" required>
             </b-form-input>
           </b-form-group>
@@ -66,7 +66,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Horario fim da venda:" label-for="hour_ticket_sell_over">
             <b-form-input :class="['input', ($v.form.hour_ticket_sell_over.$error) ? 'is-danger' : '']"
-                          v-model="form.hour_ticket_sell_over" id="hour_ticket_sell_over"
+                          v-model="form.hour_ticket_sell_over" id="hour_ticket_sell_over" @keyup.native="ticketSave()"
                           type="time" required>
             </b-form-input>
           </b-form-group>
@@ -96,6 +96,15 @@ export default {
         date_ticket_sell_over: '',
         hour_ticket_sell_over: ''
       }
+    }
+  },
+  methods: {
+    ticketSave () {
+      localStorage.tprice = this.form.event_ticket_price
+      localStorage.dbticket = this.form.date_ticket_sell
+      localStorage.hbticket = this.form.hour_ticket_sell
+      localStorage.deticket = this.form.date_ticket_sell_over
+      localStorage.heticket = this.form.hour_ticket_sell_over
     }
   },
   validations: {

@@ -6,7 +6,7 @@
         <b-col>
           <b-form-group label="Local do evento:" label-for="event_location">
             <b-form-input :class="['input', ($v.form.place.$error) ? 'is-danger' : '']"
-                          v-model="form.place"
+                          v-model="form.place" @keyup.native="localSave()"
                           id="event_location"  placeholder="Local do evento">
             </b-form-input>
           </b-form-group>
@@ -18,7 +18,7 @@
           <b-form-group label="CEP:" label-for="event_cep">
             <b-form-input :class="['input', ($v.form.cep.$error) ? 'is-danger' : '']"
                           maxlength="8" type="text"
-                          v-model="form.cep" @keyup.native="searchCep()"
+                          v-model="form.cep" @keyup.native="searchCep(); localSave()"
                           id="event_cep" placeholder="CEP do local">
             </b-form-input>
           </b-form-group>
@@ -28,14 +28,14 @@
       <b-row>
         <b-col lg="8" md="12" sm="12">
           <b-form-group label="Logradouro:" label-for="event_street">
-            <b-form-input v-model="endereco.logradouro"
+            <b-form-input v-model="endereco.logradouro" @keyup.native="localSave()"
                           id="event_street" type="text"  placeholder="Rua ou Avenida">
             </b-form-input>
           </b-form-group>
         </b-col>
         <b-col lg="4" md="12" sm="12">
           <b-form-group label="Numero:" label-for="event_street_number">
-            <b-form-input v-model="endereco.numero"
+            <b-form-input v-model="endereco.numero" @keyup.native="localSave()"
                           id="event_street_number" type="number" placeholder="Numero">
             </b-form-input>
           </b-form-group>
@@ -44,7 +44,7 @@
       <b-row>
         <b-col>
           <b-form-group label="Bairro:" label-for="event_neighbour">
-            <b-form-input v-model="endereco.bairro"
+            <b-form-input v-model="endereco.bairro" @keyup.native="localSave()"
                           id="event_beighbour" type="text"  placeholder="Bairro">
             </b-form-input>
           </b-form-group>
@@ -53,14 +53,14 @@
       <b-row>
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Cidade:" label-for="event_city">
-            <b-form-input v-model="endereco.localidade"
+            <b-form-input v-model="endereco.localidade" @keyup.native="localSave()"
                           id="event_city" type="text"  placeholder="Cidade">
             </b-form-input>
           </b-form-group>
         </b-col>
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Estado:" label-for="event_state">
-            <b-form-input v-model="endereco.uf"
+            <b-form-input v-model="endereco.uf" @keyup.native="localSave()"
                           id="event_state" type="text"  placeholder="Estado">
             </b-form-input>
           </b-form-group>
@@ -96,6 +96,10 @@ export default {
           .get(`https://viacep.com.br/ws/${this.form.cep}/json/`)
           .then(response => (this.endereco = response.data))
       }
+    },
+    localSave () {
+      localStorage.place = this.form.place
+      localStorage.endereco = JSON.stringify(this.endereco)
     }
   },
   validations: {

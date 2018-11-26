@@ -6,7 +6,7 @@
         <b-col>
           <b-form-group label="Nome do evento:" label-for="event_name">
             <b-form-input :class="['input', ($v.form.event_name.$error) ? 'is-danger' : '']"
-                          v-model="form.event_name" id="event_name" type="text"
+                          v-model="form.event_name" @keyup.native="infoSave()" id="event_name" type="text"
                           placeholder="Nome do evento">
             </b-form-input>
           </b-form-group>
@@ -17,7 +17,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Data inicio do evento:" label-for="begin_date_event">
             <b-form-input :class="['input', ($v.form.begin_date_event.$error) ? 'is-danger' : '']"
-                          v-model="form.begin_date_event"
+                          v-model="form.begin_date_event" @keyup.native="infoSave()"
                           id="begin_date_event" type="date">
             </b-form-input>
           </b-form-group>
@@ -26,7 +26,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Horario inicio:" label-for="begin_hour_event">
             <b-form-input :class="['input', ($v.form.begin_hour_event.$error) ? 'is-danger' : '']"
-                          v-model="form.begin_hour_event"
+                          v-model="form.begin_hour_event" @keyup.native="infoSave()"
                           id="begin_hour_event" type="time">
             </b-form-input>
           </b-form-group>
@@ -37,7 +37,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Data fim do evento:" label-for="end_date_event">
             <b-form-input :class="['input', ($v.form.end_date_event.$error) ? 'is-danger' : '']"
-                          v-model="form.end_date_event"
+                          v-model="form.end_date_event" @keyup.native="infoSave()"
                           id="end_date_event" type="date">
             </b-form-input>
           </b-form-group>
@@ -46,7 +46,7 @@
         <b-col lg="6" md="12" sm="12">
           <b-form-group label="Horario fim:" label-for="end_hour_event">
             <b-form-input :class="['input', ($v.form.end_hour_event.$error) ? 'is-danger' : '']"
-                          v-model="form.end_hour_event"
+                          v-model="form.end_hour_event" @keyup.native="infoSave()"
                           id="end_hour_event" type="time">
             </b-form-input>
           </b-form-group>
@@ -57,7 +57,7 @@
         <b-col>
           <b-form-group label="Programação do evento:" label-for="event_program">
             <b-form-textarea :class="['textarea', ($v.form.event_program.$error) ? 'is-danger' : '']"
-                              v-model="form.event_program"
+                              v-model="form.event_program" @keyup.native="infoSave()"
                               id="event_program" placeholder="Programação do seu evento"
                               :rows="3">
             </b-form-textarea>
@@ -109,6 +109,16 @@ export default {
       event_program: {
         required
       }
+    }
+  },
+  methods: {
+    infoSave () {
+      localStorage.name = this.form.event_name
+      localStorage.bdate = this.form.begin_date_event
+      localStorage.bhour = this.form.begin_hour_event
+      localStorage.edate = this.form.end_date_event
+      localStorage.ehour = this.form.end_hour_event
+      localStorage.program = this.form.event_program
     }
   },
   watch: {

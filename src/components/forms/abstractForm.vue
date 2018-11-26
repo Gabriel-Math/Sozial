@@ -5,7 +5,7 @@
         <b-col md="12">
           <b-row class="justify-content-md-center text-center">
             <b-col md="8">
-              <p class="h2" style="color: black;">TESTE EVENTO</p>
+              <p class="h2" style="color: black;">{{ nome }}</p>
             </b-col>
           </b-row>
           <b-row class="justify-content-md-center text-center">
@@ -15,12 +15,12 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> Data de inicio: TESTE às TESTE</p>
+              <p> Data de inicio: {{ bdate }} às {{ bhour }}</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Data do fim: TESTE às TESTE</p>
+              <p> Data do fim: {{ edate }} às {{ ehour }}</p>
             </b-col>
           </b-row>
 
@@ -31,17 +31,17 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> Local: TESTE</p>
+              <p> Local: {{ place }}</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Rua/Avenida: TESTE,TESTE</p>
+              <p> Rua/Avenida: {{ adress.logradouro }}, {{ adress.numero }}</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Cidade: TESTE-TESTE</p>
+              <p> Cidade: {{ adress.localidade }}-{{ adress.uf }}</p>
             </b-col>
           </b-row>
 
@@ -52,17 +52,17 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> Preço do ingresso: TESTE</p>
+              <p> Preço do ingresso: {{ tprice }}</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Data de inicio: TESTE às TESTE</p>
+              <p> Data de inicio: {{ dbticket }} às {{ hbticket }}</p>
             </b-col>
           </b-row>
           <b-row>
             <b-col>
-              <p> Data do fim: TESTE às TESTE</p>
+              <p> Data do fim: {{ deticket }} às {{ heticket }}</p>
             </b-col>
           </b-row>
 
@@ -73,7 +73,7 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> TESTE</p>
+              <p> {{ program }}</p>
             </b-col>
           </b-row>
 
@@ -95,21 +95,49 @@
 </template>
 
 <script>
-import infoForm from './infoForm.vue'
-import localForm from './localForm.vue'
-import ticketForm from './ticketForm.vue'
-import definitionForm from './definitionForm.vue'
-import requirementsForm from './requirementsForm.vue'
-import abstractForm from './abstractForm.vue'
 
 export default {
-  components: {
-    infoForm,
-    localForm,
-    ticketForm,
-    definitionForm,
-    requirementsForm,
-    abstractForm
+  data () {
+    return {
+      nome: '',
+      bdate: '',
+      bhour: '',
+      edate: '',
+      ehour: '',
+      program: '',
+      place: '',
+      adress: [],
+      tprice: '',
+      dbticket: '',
+      hdticket: '',
+      deticket: '',
+      heticket: ''
+    }
+  },
+  mounted () {
+    this.nome = localStorage.name
+    this.bdate = localStorage.bdate
+    this.bhour = localStorage.bhour
+    this.edate = localStorage.edate
+    this.ehour = localStorage.ehour
+    this.program = localStorage.program
+
+    this.place = localStorage.place
+    var test = localStorage.endereco
+    this.adress = JSON.parse(test)
+
+    this.tprice = localStorage.tprice
+    this.dbticket = localStorage.dbticket
+    this.hbticket = localStorage.hbticket
+    this.deticket = localStorage.deticket
+    this.heticket = localStorage.heticket
+
   }
 }
 </script>
+
+<style>
+p {
+  color: black;
+}
+</style>
