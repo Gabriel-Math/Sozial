@@ -84,7 +84,22 @@
           </b-row>
           <b-row>
             <b-col>
-              <p> AQUI FICARÁ O RESULTADO DA ANALISE DOS REQUISITOS </p>
+              <p> Orçamento: R$X.XXX,XX </p>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <p> Total em venda de ingresso: R$X.XXX,XX </p>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <p> Total em compra de produtos: R$X.XXX,XX </p>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <p> Quantidade a comprar dos produtos: X </p>
             </b-col>
           </b-row>
 

@@ -17,7 +17,7 @@
         <b-col lg="12" md="12" sm="12">
           <b-form-group label="Requisitos do evento:">
             <multiselect v-model="form.value" :options="options" :multiple="true"
-                        group-values="libs" group-label="language" :group-select="true" placeholder="Procure e adicione tags"
+                        group-values="libs" group-label="type" :group-select="true" placeholder="Procure e adicione tags"
                         track-by="name" label="name" :close-on-select="false">
                         <span slot="noResult">Desculpa, nenhum requisito encontrado, procure de outra forma.</span>
             </multiselect>
@@ -47,25 +47,21 @@ export default {
       },
       options: [
         {
-          language: 'Bebidas',
+          type: 'Bebidas',
           libs: [
-            { name: 'Refrigerante', category: '1' },
-            { name: 'Cerveja', category: '1' },
-            { name: 'Agua', category: '1' },
-            { name: 'Suco', category: '1' },
-            { name: 'Whisky', category: '1' },
-            { name: 'Vodka', category: '1' },
-            { name: 'Saquê', category: '1' }
+            { name: 'Refrigerante', price: '8' },
+            { name: 'Cerveja', price: '6' },
+            { name: 'Agua', price: '3' },
+            { name: 'Suco', price: '5' }
           ]
         },
         {
-          language: 'Comidas',
+          type: 'Comidas',
           libs: [
-            { name: 'Coxinha', category: '2' },
-            { name: 'Pastel', category: '2' },
-            { name: 'Esfiha', category: '2' },
-            { name: 'Pizza', category: '2' },
-            { name: 'Bolo de chocolate', category: '2' }
+            { name: 'Coxinha', price: '3' },
+            { name: 'Esfiha', price: '5' },
+            { name: 'Pizza', price: '30' },
+            { name: 'Bolo de chocolate', price: '30' }
           ]
         }
       ]
